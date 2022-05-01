@@ -158,7 +158,7 @@
               <ul class="menu-sub">
 
                 <li class="menu-item">
-                  <a href="<?php echo base_url();?>Usuarios" class="menu-link">
+                  <a href="<?php echo base_url();?>Usuarios/index" class="menu-link">
                     <div data-i18n="Without menu">Inicio</div>
                   </a>
                 </li>
@@ -226,8 +226,8 @@
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-semibold d-block">John Doe</span>
-                            <small class="text-muted">Admin</small>
+                            <span class="fw-semibold d-block"><?php echo $this->session->userdata('login') ?></span>
+                            <small class="text-muted"></small>
                           </div>
                         </div>
                       </a>
