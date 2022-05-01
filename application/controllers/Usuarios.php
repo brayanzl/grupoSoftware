@@ -28,8 +28,55 @@ class Usuarios extends CI_Controller {
         $data['usuario']=$this->Usuario_model->lista();
 
 		$this->load->view('layouts/header');
-        $this->load->view('Usuarios',$data);
+        $this->load->view('usuarios/index',$data);
         $this->load->view('layouts/footer');
+	}
+	public function insertar()
+	{
+        $this->load->view('layouts/header');
+        $this->load->view('usuarios/insert');
+        $this->load->view('layouts/footer');
+	}
+
+	
+
+	public function guardar()
+	{
+		$login=$this->input->post('login');//capturar el nombre del usuario
+		
+		$params=$this->datos();
+		$verificarLogin=$this->Usuario_model->verificar_login($login);
+
+		if($verificarLogin==0){
+			$this->Usuario_model->agregarUsuario($params);
+			redirect('usuarios','refresh');
+
+		}
+		else{
+			
+			$this->load->view('layouts/header');
+			$this->load->view('usuarios/insert');
+			$this->load->view('layouts/footer');
+		}
+		
+	}
+
+
+	public function datos(){
+		$params=array(
+			'login'=>trim($this->input->post('login')),
+			'password'=>md5($this->input->post('password')),
+			'rol'=>trim($this->input->post('rol')),
+			'nombres'=>trim($this->input->post('nombres')),
+			'apellidoPaterno'=>trim($this->input->post('apellidoPaterno')),
+			'apellidoMaterno'=>trim($this->input->post('apellidoMaterno')),
+			'telefono'=>trim($this->input->post('telefono')),
+			'fechaNacimiento'=>trim($this->input->post('fechaNacimiento')),
+			'sexo'=>trim($this->input->post('sexo')),
+			'carnet'=>trim($this->input->post('carnet')),
+
+		);
+		return $params;
 	}
 	
 	
