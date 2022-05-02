@@ -87,21 +87,17 @@ class Usuarios extends CI_Controller
 	}
 	public function modificar()
 	{
-
-
 		$idUsuario = $this->input->post('idUsuarios');
 		//print_r($idUsuario);
 		$params = $this->psw();
-
 		$this->Usuario_model->modificar($idUsuario, $params);
+		$this->session->set_flashdata("modificado", "se modifico");
 		redirect('usuarios', 'refresh');
 	}
 	public function psw()
 	{
 		$params = array(
-
 			'password' => md5($this->input->post('password'))
-
 		);
 		return $params;
 	}

@@ -1,13 +1,19 @@
 <!-- Content wrapper -->
 <div class="content-wrapper">
-    <!-- Content -->
+  <?php if ($this->session->flashdata('modificado')) : ?>
+    <div class="alert alert-success alert-dismissible " role="alert">
+      "se modifico la contraseña"
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    </div>
+  <?php endif; ?>
+  <!-- Content -->
 
-    <div class="container-xxl flex-grow-1 container-p-y">
-        <div class="row">
-            
-            
-            <!-------------------- CONTENEDOR ------------------------->
-            <div class="form-group">
+  <div class="container-xxl flex-grow-1 container-p-y">
+    <div class="row">
+
+
+      <!-------------------- CONTENEDOR ------------------------->
+      <div class="form-group">
         <a href="<?php echo base_url(); ?>usuarios/insertar/" class="btn btn-info btn-rounded btn-fw">Nuevo Usuario</a>
       </div>
       <div class="card">
@@ -23,9 +29,9 @@
                 <th>Telefono</th>
                 <th>carnet</th>
                 <th>Nombre de Usuario</th>
-                
+
                 <th>Acciones</th>
-                
+
               </tr>
             </thead>
 
@@ -40,8 +46,8 @@
                   <td><?php echo $row['telefono']; ?></td>
                   <td><?php echo $row['carnet']; ?></td>
                   <td><?php echo $row['login']; ?></td>
-                  
-                  
+
+
 
 
 
@@ -64,9 +70,9 @@
           </table>
         </div>
       </div>
-            <!----------------------/ CONTENEDOR ---------------------->
-            
-        </div>
-        
+      <!----------------------/ CONTENEDOR ---------------------->
+
     </div>
-    <!-- / Content -->
+
+  </div>
+  <!-- / Content -->
