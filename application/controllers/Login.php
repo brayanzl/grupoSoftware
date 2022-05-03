@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Login extends CI_Controller {
+class Login extends CI_Controller
+{
 
 	/**
 	 * Index Page for this controller.
@@ -18,7 +19,8 @@ class Login extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	function __construct(){
+	function __construct()
+	{
 		parent::__construct();
 		$this->load->model('Login_model');
 	}
@@ -27,38 +29,34 @@ class Login extends CI_Controller {
 	{
 		$this->load->view('login');
 	}
-	
-	
-	public function ingresar(){
 
-		$login=$_POST['login'];
-		$password=md5($_POST['password']);
 
-		$consulta=$this->Login_model->ingresar($login,$password);
+	public function ingresar()
+	{
 
-		if($consulta->num_rows()>0)
-		{
-			foreach ($consulta->result() as $row)
-			{
-				$this->session->set_userdata('idUsuarios', $row->idUsuario);
+		$login = $_POST['login'];
+		$password = md5($_POST['password']);
+
+		$consulta = $this->Login_model->ingresar($login, $password);
+
+		if ($consulta->num_rows() > 0) {
+			foreach ($consulta->result() as $row) {
+				$this->session->set_userdata('idUsuarios', $row->idUsuarios);
 				$this->session->set_userdata('login', $row->login);
 				$this->session->set_userdata('rol', $row->rol);
 
-				redirect('Welcome','refresh');
+				redirect('Welcome', 'refresh');
 			}
-		}
-		else
-		{
+		} else {
 			$this->load->view('login');
 		}
 	}
 
-	public function cerrar_session(){
+	public function cerrar_session()
+	{
 
-		$usuario_data=array('s_logeado'=> FALSE);
+		$usuario_data = array('s_logeado' => FALSE);
 		$this->session->set_userdate($usuario_data);
 		$this->load->view('login');
-
 	}
-	
 }
