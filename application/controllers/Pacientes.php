@@ -80,4 +80,30 @@ class Pacientes extends CI_Controller
 		$this->Paciente_model->eliminarPaciente($idPaciente, $data);
 		redirect(base_url() . 'Pacientes');
 	}
+
+    public function editar($idPaciente)
+	{
+        $idUsuario = $this->session->userdata('idUsuarios'); 
+
+        $dat = $this->Usuario_model->obtenerUsuario($idUsuario);
+
+		$data['paciente'] = $this->Paciente_model->recuperarPaciente($idPaciente);
+        //print_r($data);
+
+		$this->load->view('layouts/header');
+		$this->load->view('pacientes/update', $data, $dat);
+		$this->load->view('layouts/footer');
+        
+	}
+    public function update()
+	{
+        
+		$idPaciente = $this->input->post('idPacientes');
+        //echo $idPaciente;
+        
+		$data = $this->datos();
+		$this->Paciente_model->modificarPaciente($idPaciente, $data);
+		redirect(base_url() . 'Pacientes');
+        
+	}
 }
