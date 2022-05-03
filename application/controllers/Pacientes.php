@@ -70,4 +70,14 @@ class Pacientes extends CI_Controller
 
         return $data;
     }
+    public function eliminar($idPaciente)
+	{
+
+		$data = array(
+			'estado' => 0
+
+		);
+		$this->Paciente_model->eliminarPaciente($idPaciente, $data);
+		redirect(base_url() . 'Pacientes');
+	}
 }

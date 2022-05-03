@@ -1,3 +1,15 @@
+<script type="text/javascript">
+	function eliminar() {
+		if (confirm("¿Realmente desea eliminarlo?")) {
+
+		} else {
+			return false
+		}
+	}
+</script>
+
+
+
 <!-- Content wrapper -->
 <div class="content-wrapper">
     <!-- Content -->
@@ -50,7 +62,7 @@
                                             </button>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item" href="<?php echo base_url() . 'pacientes/editar/' . $row['idPacientes']; ?>"><i class="bx bx-edit-alt me-1"></i> Modificar</a>
-                                                <a class="dropdown-item" href="<?php echo base_url() . 'pacientes/eliminar/' . $row['idPacientes']; ?>"><i class="bx bx-trash me-1"></i> Eliminar</a>
+                                                <a class="dropdown-item" href="<?php echo base_url() . 'pacientes/eliminar/' . $row['idPacientes']; ?>" onClick="if(eliminar() == false) return false"><i class="bx bx-trash me-1"></i> Eliminar</a>
                                             </div>
                                         </div>
                                     </td>
