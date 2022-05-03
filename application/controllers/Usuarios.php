@@ -94,6 +94,7 @@ class Usuarios extends CI_Controller
 		$params = $this->psw();
 
 		$this->Usuario_model->modificar($idUsuario, $params);
+		$this->session->set_flashdata("modificado", "se modifico");
 		redirect('usuarios', 'refresh');
 	}
 	public function psw()
