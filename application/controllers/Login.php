@@ -48,7 +48,8 @@ class Login extends CI_Controller
 				redirect('Welcome', 'refresh');
 			}
 		} else {
-			$this->load->view('login');
+			$data['mensaje'] = "Usuario y/o contraseña incorrectos";
+			$this->load->view('login',$data);
 		}
 	}
 
