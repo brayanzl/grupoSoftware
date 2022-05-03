@@ -138,6 +138,13 @@
               <h4 class="mb-2">BIENVENIDOS AL SISTEMA 👋</h4>
               <p class="mb-4">Por favor ingrese su cuenta de usuario</p>
 
+              <?php
+                if (isset($mensaje)){
+                  echo '<span class="alert alert-danger">'.$mensaje.'</span>';
+                  echo '<br><br>';
+                } 
+              ?>
+
               <form  class="mb-3" action="<?php echo base_url();?>login/ingresar" method="POST">
                 <div class="mb-3">
                   <label for="email" class="form-label">Nombre de Usuario</label>
