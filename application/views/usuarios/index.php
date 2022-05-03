@@ -1,26 +1,34 @@
 <script type="text/javascript">
-	function eliminar() {
-		if (confirm("¿Realmente desea eliminarlo?")) {
+  function eliminar() {
+    if (confirm("¿Realmente desea eliminarlo?")) {
 
-		} else {
-			return false
-		}
-	}
+    } else {
+      return false
+    }
+  }
 </script>
 <!-- Content wrapper -->
 <div class="content-wrapper">
-    <!-- Content -->
+  <!-- Content -->
 
-    <div class="container-xxl flex-grow-1 container-p-y">
-        <div class="row">
-            
-            
-            <!-------------------- CONTENEDOR ------------------------->
-            <div class="form-group">
+  <div class="container-xxl flex-grow-1 container-p-y">
+    <div class="row">
+
+
+      <!-------------------- CONTENEDOR ------------------------->
+      <div class="form-group">
         <a href="<?php echo base_url(); ?>usuarios/insertar/" class="btn btn-info btn-rounded btn-fw">Nuevo Usuario</a>
       </div>
       <div class="card">
         <h5 class="card-header">REGISTRO DE USUARIOS</h5>
+
+        <?php if ($this->session->flashdata('modificado')) : ?>
+          <div class="alert alert-success alert-dismissible form-group " role="alert">
+            "se modifico la contraseña"
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+        <?php endif; ?>
+
         <div class="table-responsive text-nowrap">
           <table class="table">
 
@@ -32,9 +40,9 @@
                 <th>Telefono</th>
                 <th>carnet</th>
                 <th>Nombre de Usuario</th>
-                
+
                 <th>Acciones</th>
-                
+
               </tr>
             </thead>
 
@@ -49,8 +57,8 @@
                   <td><?php echo $row['telefono']; ?></td>
                   <td><?php echo $row['carnet']; ?></td>
                   <td><?php echo $row['login']; ?></td>
-                  
-                  
+
+
 
 
 
@@ -62,7 +70,7 @@
                       </button>
                       <div class="dropdown-menu">
                         <a class="dropdown-item" href="<?php echo base_url() . 'usuarios/editar/' . $row['idUsuarios']; ?>"><i class="bx bx-edit-alt me-1"></i> Modificar</a>
-                        <a class="dropdown-item" href="<?php echo base_url() . 'usuarios/eliminar/' . $row['idUsuarios']; ?>" onClick="if(eliminar() == false) return false"><i class="bx bx-trash me-1" ></i> Eliminar</a>
+                        <a class="dropdown-item" href="<?php echo base_url() . 'usuarios/eliminar/' . $row['idUsuarios']; ?>" onClick="if(eliminar() == false) return false"><i class="bx bx-trash me-1"></i> Eliminar</a>
                       </div>
                     </div>
                   </td>
@@ -73,9 +81,9 @@
           </table>
         </div>
       </div>
-            <!----------------------/ CONTENEDOR ---------------------->
-            
-        </div>
-        
+      <!----------------------/ CONTENEDOR ---------------------->
+
     </div>
-    <!-- / Content -->
+
+  </div>
+  <!-- / Content -->

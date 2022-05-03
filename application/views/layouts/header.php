@@ -158,7 +158,26 @@
               <ul class="menu-sub">
 
                 <li class="menu-item">
-                  <a href="<?php echo base_url();?>Usuarios/index" class="menu-link">
+                  <a href="<?php echo base_url(); ?>Usuarios/index" class="menu-link">
+                    <div data-i18n="Without menu">Inicio</div>
+                  </a>
+                </li>
+
+                
+
+              </ul>
+
+            </li>
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">Pacientes</div>
+              </a>
+
+              <ul class="menu-sub">
+
+                <li class="menu-item">
+                  <a href="<?php echo base_url(); ?>Pacientes/index" class="menu-link">
                     <div data-i18n="Without menu">Inicio</div>
                   </a>
                 </li>
@@ -185,7 +204,7 @@
           </ul>
         </aside>
         <!-- / Menu -->
-
+  
         <!-- Layout container -->
         <div class="layout-page">
           <!-- Navbar -->
