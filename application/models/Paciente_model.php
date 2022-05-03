@@ -12,9 +12,4 @@ class Paciente_model extends CI_Model
     {
         $this->db->insert('pacientes', $data);
     }
-    function eliminarPaciente($idPaciente, $data)
-	{
-		$this->db->where('idPacientes', $idPaciente);
-		return $this->db->update('pacientes', $data);
-	}
 }
