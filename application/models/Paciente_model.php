@@ -17,4 +17,13 @@ class Paciente_model extends CI_Model
 		$this->db->where('idPacientes', $idPaciente);
 		return $this->db->update('pacientes', $data);
 	}
+    public function recuperarPaciente($idPaciente)
+	{
+		return $this->db->get_where('pacientes', array('idPacientes' => $idPaciente))->row_array();
+	}
+    public function modificarPaciente($idPaciente, $data)
+	{
+		$this->db->where('idPacientes', $idPaciente);
+		$this->db->update('pacientes', $data);
+	}
 }
