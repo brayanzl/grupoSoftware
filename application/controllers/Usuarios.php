@@ -105,4 +105,14 @@ class Usuarios extends CI_Controller
 		);
 		return $params;
 	}
+	public function eliminar($idUsuario)
+	{
+
+		$data = array(
+			'estado' => 0
+
+		);
+		$this->Usuario_model->eliminarUsuario($idUsuario, $data);
+		redirect(base_url() . 'Usuarios');
+	}
 }
