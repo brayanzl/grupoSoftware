@@ -40,4 +40,9 @@ class Usuario_model extends CI_Model
 		$this->db->where('idUsuarios', $idUsuario);
 		return $this->db->update('usuarios', $params);
 	}
+		
+		function eliminarUsuario ($idUsuario,$data){
+			$this->db->where('idUsuarios', $idUsuario);
+		return $this->db->update('usuarios', $data);
+		}
 }

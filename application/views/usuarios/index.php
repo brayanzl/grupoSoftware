@@ -53,7 +53,8 @@
                       </button>
                       <div class="dropdown-menu">
                         <a class="dropdown-item" href="<?php echo base_url() . 'usuarios/editar/' . $row['idUsuarios']; ?>"><i class="bx bx-edit-alt me-1"></i> Modificar</a>
-                        <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Eliminar</a>
+                
+                        <a class="dropdown-item" href="<?php echo base_url() . 'usuarios/eliminar/' . $row['idUsuarios']; ?>"><i class="bx bx-trash me-1"></i> Eliminar</a>
                       </div>
                     </div>
                   </td>
