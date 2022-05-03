@@ -5,6 +5,7 @@ class Usuario_model extends CI_Model
 
 	function lista()
 	{
+		$this->db->where("estado",1);
 		$this->db->order_by('idUsuarios', 'desc');
 		return $this->db->get('usuarios')->result_array();
 	}
@@ -39,5 +40,10 @@ class Usuario_model extends CI_Model
 	{
 		$this->db->where('idUsuarios', $idUsuario);
 		return $this->db->update('usuarios', $params);
+	}
+	function eliminarUsuario($idUsuario, $data)
+	{
+		$this->db->where('idUsuarios', $idUsuario);
+		return $this->db->update('usuarios', $data);
 	}
 }
