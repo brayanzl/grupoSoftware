@@ -7,7 +7,9 @@
             
             
             <!-------------------- CONTENEDOR ------------------------->
-            <H1>HOLA AMUNDO</H1>
+            <div class="layout-demo-placeholder">
+                    <img src="<?php echo base_url() . 'dist/assets/img/layouts/principal.jpg' ?>" class="img-fluid" alt="Layout container" data-app-light-img="layouts/layout-container-light.png" data-app-dark-img="layouts/layout-container-dark.png" />
+                </div>
             <!----------------------/ CONTENEDOR ---------------------->
             
         </div>
